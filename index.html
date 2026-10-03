@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portfolio - Muhammad Riski Maulana</title>
+
+<style>
+
+/* =========================
+   DASAR
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#05070d;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Background neon */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#008cff;
+    border-radius:50%;
+    filter:blur(180px);
+    opacity:.15;
+    top:-200px;
+    left:-150px;
+    z-index:-1;
+    animation:glowMove 8s infinite alternate;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    background:#0066ff;
+    border-radius:50%;
+    filter:blur(180px);
+    opacity:.12;
+    bottom:-200px;
+    right:-150px;
+    z-index:-1;
+    animation:glowMove2 10s infinite alternate;
+}
+
+@keyframes glowMove{
+    from{
+        transform:translate(0,0);
+    }
+    to{
+        transform:translate(180px,100px);
+    }
+}
+
+@keyframes glowMove2{
+    from{
+        transform:translate(0,0);
+    }
+    to{
+        transform:translate(-150px,-100px);
+    }
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(5,7,13,.75);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(0,140,255,.2);
+    z-index:1000;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:#00aaff;
+    text-shadow:
+        0 0 5px #008cff,
+        0 0 15px #008cff;
+}
+
+nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#00aaff;
+    text-shadow:0 0 10px #008cff;
+}
+
+.menu-btn{
+    display:none;
+    font-size:25px;
+    cursor:pointer;
+    color:#00aaff;
+}
+
+
+/* =========================
+   HERO
+========================= */
+.profile-photo{
+    width:160px;
+    height:160px;
+    margin:0 auto 30px;
+    border-radius:50%;
+    padding:4px;
+    background:#008cff;
+    box-shadow:
+        0 0 10px #008cff,
+        0 0 30px #008cff,
+        0 0 60px rgba(0,140,255,.5);
+    animation:profileGlow 3s infinite alternate,
+              profileFloat 4s ease-in-out infinite;
+}
+
+.profile-photo img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    border-radius:50%;
+    border:3px solid #05070d;
+}
+
+@keyframes profileGlow{
+
+    from{
+        box-shadow:
+            0 0 10px #008cff,
+            0 0 25px #008cff;
+    }
+
+    to{
+        box-shadow:
+            0 0 15px #008cff,
+            0 0 45px #008cff,
+            0 0 70px rgba(0,140,255,.6);
+    }
+
+}
+
+@keyframes profileFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+}
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:100px 20px 60px;
+}
+
+.hero-content{
+    max-width:850px;
+    animation:heroAppear 1.2s ease;
+}
+
+@keyframes heroAppear{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.small-title{
+    color:#00aaff;
+    letter-spacing:4px;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(40px,8vw,80px);
+    line-height:1.1;
+    margin-bottom:20px;
+    color:white;
+    text-shadow:
+        0 0 10px #008cff,
+        0 0 30px rgba(0,140,255,.5);
+    animation:nameGlow 3s infinite alternate;
+}
+
+@keyframes nameGlow{
+    from{
+        text-shadow:
+        0 0 8px #008cff;
+    }
+    to{
+        text-shadow:
+        0 0 10px #008cff,
+        0 0 35px #008cff;
+    }
+}
+
+.hero h2{
+    color:#00aaff;
+    font-size:24px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    color:#aeb9c8;
+    max-width:650px;
+    margin:auto;
+    line-height:1.8;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.buttons{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 25px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#008cff;
+    color:white;
+    box-shadow:
+        0 0 10px rgba(0,140,255,.5);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:
+        0 0 10px #008cff,
+        0 0 30px #008cff;
+}
+
+.btn-outline{
+    border:1px solid #008cff;
+    color:#00aaff;
+}
+
+.btn-outline:hover{
+    background:#008cff;
+    color:white;
+    box-shadow:0 0 25px #008cff;
+    transform:translateY(-4px);
+}
+
+
+/* =========================
+       SECTION
+    ========================= */
+    
+    section{
+        padding:100px 8%;
+    }
+    
+    .section-title{
+        text-align:center;
+        margin-bottom:50px;
+    }
+    
+    .section-title h2{
+        font-size:35px;
+        margin-bottom:10px;
+    }
+    
+    .section-title span{
+        color:#00aaff;
+    }
+    
+    .section-title p{
+        color:#7f8b9b;
+    }
+    
+    
+    /* =========================
+       ABOUT
+    ========================= */
+    
+   .about{
+    max-width:850px;
+    margin:auto;
+    padding:35px;
+    text-align:center;
+    background:#0b1019;
+    border:1px solid rgba(0,140,255,.3);
+    border-radius:18px;
+    box-shadow:
+        0 0 15px rgba(0,140,255,.15),
+        0 0 40px rgba(0,140,255,.05);
+}
+    
+    
+    .about p{
+        color:#aeb9c8;
+        line-height:1.9;
+        font-size:17px;
+    }
+    
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills-container{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    max-width:900px;
+    margin:auto;
+}
+
+.skill{
+    background:#0b1019;
+    border:1px solid rgba(0,140,255,.25);
+    border-radius:15px;
+    padding:30px;
+    text-align:center;
+    transition:.4s;
+}
+.skill:nth-child(1){
+    transition-delay:.1s;
+}
+
+.skill:nth-child(2){
+    transition-delay:.3s;
+}
+
+.skill:nth-child(3){
+    transition-delay:.5s;
+}
+.skill:hover{
+    transform:translateY(-10px);
+    border-color:#008cff;
+    box-shadow:
+        0 0 10px rgba(0,140,255,.4),
+        0 0 30px rgba(0,140,255,.15);
+}
+
+.skill-icon{
+    font-size:40px;
+    margin-bottom:15px;
+}
+.skill:active .skill-icon{
+    transform:scale(1.2) rotate(8deg);
+    text-shadow:
+        0 0 10px #008cff,
+        0 0 25px #008cff;
+}
+.skill h3{
+    color:#00aaff;
+}
+
+
+/* =========================
+   PROJECT
+========================= */
+
+.project-container{
+    max-width:900px;
+    margin:auto;
+}
+
+.project{
+    background:#0b1019;
+    border:1px solid rgba(0,140,255,.3);
+    border-radius:18px;
+    padding:35px;
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
+}
+.project-video{
+    width:100%;
+    display:block;
+    border-radius:15px;
+    margin-bottom:25px;
+    border:1px solid rgba(0,140,255,.4);
+    box-shadow:
+        0 0 10px rgba(0,140,255,.3),
+        0 0 30px rgba(0,140,255,.15);
+    transition:.4s;
+}
+
+.project-video:hover{
+    transform:scale(1.01);
+    border-color:#00aaff;
+    box-shadow:
+        0 0 15px rgba(0,140,255,.5),
+        0 0 40px rgba(0,140,255,.2);
+}
+
+.project::before{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    background:#008cff;
+    filter:blur(80px);
+    opacity:.12;
+    right:-50px;
+    top:-50px;
+    animation:projectGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes projectGlow{
+    from{
+        transform:translate(0,0);
+    }
+    to{
+        transform:translate(-80px,80px);
+    }
+}
+
+.project:hover{
+    transform:translateY(-8px);
+    border-color:#00aaff;
+    box-shadow:
+        0 0 15px rgba(0,140,255,.3),
+        0 0 40px rgba(0,140,255,.1);
+}
+.project:active{
+    transform:scale(.98);
+    border-color:#00aaff;
+    box-shadow:0 0 20px rgba(0,140,255,.5);
+}
+.project h3{
+    font-size:28px;
+    color:#00aaff;
+    margin-bottom:15px;
+    text-shadow:0 0 10px #00aaff;
+    animation:titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow{
+    from{
+        text-shadow:0 0 5px #00aaff;
+    }
+    to{
+        text-shadow:
+            0 0 10px #00aaff,
+            0 0 25px #008cff;
+    }
+}
+
+.project p{
+    color:#aeb9c8;
+    line-height:1.8;
+    transition:.3s;
+}
+
+.project-tag{
+    display:inline-block;
+    margin-top:20px;
+    padding:7px 12px;
+    border-radius:20px;
+    background:rgba(0,140,255,.1);
+    border:1px solid rgba(0,140,255,.4);
+    color:#00aaff;
+    font-size:13px;
+}
+.code-viewer{
+    max-width:900px;
+    margin:25px auto 0;
+    background:#05070d;
+    border:1px solid rgba(0,140,255,.4);
+    border-radius:15px;
+    padding:20px;
+    overflow:auto;
+    box-shadow:0 0 20px rgba(0,140,255,.15);
+}
+
+.code-viewer pre{
+    margin:0;
+    color:#aee7ff;
+    font-family:monospace;
+    font-size:13px;
+    line-height:1.6;
+    white-space:pre;
+}
+.code-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+    padding-bottom:10px;
+    border-bottom:1px solid rgba(0,140,255,.25);
+}
+
+#codeTitle{
+    color:#00aaff;
+    font-weight:bold;
+    font-size:15px;
+    text-shadow:0 0 10px #008cff;
+}
+
+.code-close{
+    width:32px;
+    height:32px;
+    border:1px solid rgba(0,140,255,.4);
+    border-radius:50%;
+    background:rgba(0,140,255,.1);
+    color:#00aaff;
+    font-size:22px;
+    line-height:1;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.code-close:hover{
+    background:#008cff;
+    color:white;
+    box-shadow:0 0 15px #008cff;
+    transform:rotate(90deg);
+}
+
+.code-close:active{
+    transform:scale(.9);
+}
+.project-tag:hover{
+    background:rgba(0,140,255,.2);
+    box-shadow:0 0 12px rgba(0,140,255,.4);
+    transform:translateY(-3px);
+}
+
+.project-tag:active{
+    transform:scale(.95);
+}
+.project-button{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 22px;
+    border-radius:8px;
+    background:#008cff;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    box-shadow:0 0 10px rgba(0,140,255,.5);
+    transition:.3s;
+}
+
+.project-button:hover{
+    transform:translateY(-4px);
+    box-shadow:
+        0 0 10px #008cff,
+        0 0 30px #008cff;
+}
+.project-button:active{
+    transform:scale(.94);
+    box-shadow:
+        0 0 10px #008cff,
+        0 0 25px #008cff;
+}
+.cv-button{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 22px;
+    border-radius:8px;
+    background:#008cff;
+    color:#ffffff !important;
+    text-decoration:none;
+    font-weight:bold;
+    box-shadow:0 0 10px rgba(0,140,255,.5);
+    transition:.3s;
+}
+
+.cv-button:hover{
+    transform:translateY(-4px);
+    box-shadow:
+        0 0 10px #008cff,
+        0 0 30px #008cff;
+}
+
+.cv-button:active{
+    transform:scale(.94);
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+    text-align:center;
+}
+
+.contact-box{
+    max-width:700px;
+    margin:auto;
+    background:#0b1019;
+    border:1px solid rgba(0,140,255,.25);
+    border-radius:18px;
+    padding:35px;
+}
+
+.contact-box p{
+    color:#aeb9c8;
+    margin-bottom:20px;
+}
+
+.contact-links{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.contact-links a{
+    color:#00aaff;
+    text-decoration:none;
+    padding:10px 15px;
+    border:1px solid rgba(0,140,255,.4);
+    border-radius:8px;
+    transition:.3s;
+}
+.contact-links a:active{
+    transform:scale(.94);
+    box-shadow:0 0 15px rgba(0,140,255,.5);
+}
+.contact-links a:hover{
+    background:#008cff;
+    color:white;
+    box-shadow:0 0 20px #008cff;
+    transform:translateY(-3px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid rgba(0,140,255,.15);
+    color:#657080;
+}
+
+
+/* =========================
+   ANIMASI SCROLL
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    header{
+        padding:18px 6%;
+    }
+
+    nav{
+        position:absolute;
+        top:70px;
+        right:6%;
+        width:200px;
+        background:#080d15;
+        border:1px solid rgba(0,140,255,.3);
+        border-radius:12px;
+        padding:20px;
+        display:none;
+        flex-direction:column;
+        gap:20px;
+        box-shadow:0 0 25px rgba(0,140,255,.15);
+    }
+
+    nav.active{
+        display:flex;
+        animation:menuOpen .3s ease;
+    }
+
+    @keyframes menuOpen{
+        from{
+            opacity:0;
+            transform:translateY(-10px);
+        }
+        to{
+            opacity:1;
+            transform:translateY(0);
+        }
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero h2{
+        font-size:20px;
+    }
+
+    section{
+        padding:80px 6%;
+    }
+
+    .skills-container{
+        grid-template-columns:1fr;
+    }
+    .skills-container > div:active{
+    transform:scale(.95);
+    box-shadow:
+        0 0 15px #008cff,
+        0 0 35px rgba(0,140,255,.5);
+}
+    .project{
+        padding:25px;
+    }
+
+}
+
+
+/* =========================
+   REDUCE ANIMATION
+========================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto !important;
+    }
+
+}
+.cv-modal{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    inset:0;
+    background:rgba(0,0,0,.85);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+.cv-modal.show{
+    display:flex;
+}
+
+.cv-box{
+    position:relative;
+    width:95%;
+    max-width:800px;
+    height:60vh;
+    background:#05070d;
+    border:1px solid #008cff;
+    border-radius:15px;
+    box-shadow:
+        0 0 15px #008cff,
+        0 0 40px rgba(0,140,255,.4);
+    overflow:hidden;
+}
+
+.cv-frame{
+    width:100%;
+    height:100%;
+    border:0;
+    
+}
+
+.cv-close{
+    position:absolute;
+    top:10px;
+    right:10px;
+    z-index:2;
+    width:35px;
+    height:35px;
+    border:1px solid #008cff;
+    border-radius:50%;
+    background:#05070d;
+    color:#ffffff;
+    font-size:25px;
+    cursor:pointer;
+    box-shadow:0 0 10px #008cff;
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <a href="#home" class="logo">
+        엠리스키.
+    </a>
+
+    <nav id="navMenu">
+
+        <a href="#home">HOME/홈페이지</a>
+        <a href="#about">ABOUT/~에 대한 </a>
+        <a href="#skills">SKILLS/기능 </a>
+        <a href="#projects">PROJECT/프로젝트</a>
+        <a href="#contact">CONTACT연락하다</a>
+
+    </nav>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+        ☰
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     BERANDA
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+        <div class="profile-photo">
+    <img src="foto.png" alt="Foto Muhammad Riski Maulana">
+</div>
+        <div class="small-title">
+            PORTOFOLIO
+        </div>
+
+        <h1>
+            MUHAMMAD<br>
+            RISKI MAULANA
+        </h1>
+
+        <h2>
+            Web Developer Profesional 
+        </h2>
+
+        <p>
+            Hi, my name is Riski. I'm a website and app developer using HTML, CSS, JavaScript, and other technologies.</p>
+
+        <div class="buttons">
+
+            <a href="#projects" class="btn btn-primary">
+                VIEW PROJECT
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+                연락 주세요.
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     TENTANG
+========================= -->
+
+<section id="about" class="reveal">
+
+    <div class="section-title">
+
+        <h2>
+            ABOUT <span>ME</span>
+        </h2>
+
+        <p>
+            To briefly introduce myself.<br>
+            저에 대해 간략히 소개하자면.
+        </p>
+
+    </div>
+
+
+    <div class="about">
+
+        <p>
+            I'm Muhammad Riski Maulana, a professional web developer currently creating large websites and applications. I'm interested in technology, programming, and web design.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     KEAHLIAN
+========================= -->
+
+<section id="skills" class="reveal">
+
+    <div class="section-title">
+
+        <h2>
+            my <span>expertise</span>
+        </h2>
+
+        <p>
+            The technology I am currently studying.<br>
+            제가 현재 공부하고 있는 기술.
+        </p>
+
+    </div>
+
+
+    <div class="skills-container">
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                &lt;/&gt;
+            </div>
+
+            <h3>
+                HTML
+            </h3>
+
+            <p>
+                Structure and basics of website creation.<br><br>웹사이트 제작의 구조와 기본 사항.
+            </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                #
+            </div>
+
+            <h3>
+                CSS
+            </h3>
+
+            <p>
+                Make the website appearance attractive and responsive.<br><br>웹사이트의 디자인을 매력적이고 반응형으로 만드세요.
+            </p>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-icon">
+                JS
+            </div>
+
+            <h3>
+                JavaScript
+            </h3>
+
+            <p>
+                Make the website interactive and dynamic.<br><br>웹사이트를 상호작용적이고 역동적으로 만드세요.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROYEK
+========================= -->
+
+<section id="projects" class="reveal">
+
+    <div class="section-title">
+
+        <h2>
+            MY <span>PROJECT</span>
+        </h2>
+
+        <p>
+            Some projects I am currently developing.<br>제가 현재 개발 중인 프로젝트 몇 가지입니다.
+        </p>
+
+    </div>
+
+
+    <div class="project-container">
+
+        <div class="project reveal">
+            <video class="project-video" autoplay muted loop playsinline controls><source src="preview-apk.mp4" type="video/mp4">
+            </video>
+            <h3>
+                M.U.R Track
+            </h3>
+
+            <p>
+                M.U.R. Track is a tracking website/application that I created as a learning project in website development using technology.
+            </p>
+
+<div class="project-code-buttons">
+    <button class="project-tag" onclick="showCode('html')">HTML</button>
+    <button class="project-tag" onclick="showCode('css')">CSS</button>
+    <button class="project-tag" onclick="showCode('js')">JavaScript</button>
+</div>
+            <br>
+
+            <a href="https://oralive04-del.github.io/Mur-apk-new/" class="project-button">
+              VIEW PROJECT
+</a>
+        </div>
+
+    </div>
+    <div id="codeViewer" class="code-viewer" style="display:none;">
+
+    <div class="code-header">
+        <span id="codeTitle">CODE</span>
+
+        <button class="code-close" onclick="closeCode()">
+            ×
+        </button>
+    </div>
+
+    <pre id="codeContent"></pre>
+    </div>
+</section>
+
+
+
+<!-- =========================
+     KONTAK
+========================= -->
+
+<section id="contact" class="contact reveal">
+
+    <div class="section-title">
+
+        <h2>
+            FIND <span>me</span>
+        </h2>
+
+        <p>
+            Look for me.<br>
+            저를 찾아보세요.
+        </p>
+
+    </div>
+
+
+    <div class="contact-box">
+
+        <p>
+            If you'd like to contact me or view my projects, please use one of the following contact information.
+        </p>
+
+
+        <div class="contact-links">
+
+            <a href="mailto:or.alive04@gmail.com">
+                Email
+            </a>
+
+            <a
+                href="https://github.com/oralive04-del"target="_blank">
+                GitHub
+            </a>
+
+            <a
+                href="https://instagram.com/oralive_id"
+                target="_blank">
+                Instagram
+            </a>
+            
+            <button class="cv-button" onclick="openCV()"> DOWNLOAD CV</button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<div id="cvModal" class="cv-modal">
+    <div class="cv-box">
+
+        <button class="cv-close" onclick="closeCV()">×</button>
+
+<iframe
+    src="https://docs.google.com/gview?embedded=true&url=https://oralive04-del.github.io/Portofolio-/CV-Muhammad-Riski-Maulana.pdf"
+    class="cv-frame">
+</iframe>
+
+    </div>
+</div>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 MR.Riski Maulana ™
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   MENU MOBILE
+========================= */
+
+function toggleMenu(){
+
+    const menu = document.getElementById("navMenu");
+
+    menu.classList.toggle("active");
+
+}
+document.addEventListener("click", function(event){
+
+    const menu = document.getElementById("navMenu");
+    const button = document.querySelector(".menu-btn");
+
+    if(
+        menu.classList.contains("active") &&
+        !menu.contains(event.target) &&
+        !button.contains(event.target)
+    ){
+        menu.classList.remove("active");
+    }
+
+});
+
+/* =========================
+   TUTUP MENU SETELAH KLIK
+========================= */
+
+document.querySelectorAll("nav a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        document
+        .getElementById("navMenu")
+        .classList.remove("active");
+
+    });
+
+});
+
+
+/* =========================
+   ANIMASI SAAT SCROLL
+========================= */
+
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+
+    (entries) => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("active");
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:0.15
+    }
+
+);
+
+
+reveals.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+async function showCode(type){
+
+    const viewer = document.getElementById("codeViewer");
+    const content = document.getElementById("codeContent");
+    const title = document.getElementById("codeTitle");
+
+    viewer.style.display = "block";
+
+    if(type === "html"){
+        title.textContent = "M.U.R TRACK — HTML";
+    }
+
+    if(type === "css"){
+        title.textContent = "M.U.R TRACK — CSS";
+    }
+
+    if(type === "js"){
+        title.textContent = "M.U.R TRACK — JAVASCRIPT";
+    }
+
+    content.textContent = "Memuat kode...";
+
+    const url =
+        "https://raw.githubusercontent.com/oralive04-del/Mur-apk-new/main/index.html";
+
+    try{
+
+        const response = await fetch(url);
+
+        if(!response.ok){
+            throw new Error("Gagal mengambil kode");
+        }
+
+        const source = await response.text();
+
+        if(type === "html"){
+
+            const html = source
+                .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "")
+                .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "")
+                .trim();
+
+            content.textContent = html;
+        }
+
+        if(type === "css"){
+
+            const css = [...source.matchAll(
+                /<style[^>]*>([\s\S]*?)<\/style>/gi
+            )]
+            .map(match => match[1].trim())
+            .join("\n\n");
+
+            content.textContent = css;
+        }
+
+        if(type === "js"){
+
+            const js = [...source.matchAll(
+                /<script[^>]*>([\s\S]*?)<\/script>/gi
+            )]
+            .map(match => match[1].trim())
+            .filter(Boolean)
+            .join("\n\n");
+
+            content.textContent = js;
+        }
+
+        viewer.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    }catch(error){
+
+        content.textContent =
+            "Kode gagal dimuat.\n\nPastikan koneksi internet aktif.";
+
+    }
+
+}
+
+
+function closeCode(){
+
+    const viewer = document.getElementById("codeViewer");
+
+    viewer.style.display = "none";
+
+}
+function openCV(){
+
+    const modal = document.getElementById("cvModal");
+
+    modal.classList.add("show");
+
+}
+
+function closeCV(){
+
+    const modal = document.getElementById("cvModal");
+
+    modal.classList.remove("show");
+
+}
+</script>
+
+
+</body>
+</html>
